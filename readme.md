@@ -33,3 +33,51 @@ The final edited image is
 
 ## Part 3: journalctl
 
+## Part 4: 
+
+### Step 1: create new user
+* to create new user with bash shell use: 
+$ useradd -ms /bin/bash username
+
+* to add the new user to sudo group use:
+$ usermod -aG sudo username
+
+### Step 2: create script to find users in /etc/passwd
+
+* create script:
+$ touch findUsers
+
+* add execution permission:
+$ chmod + x findUsers
+
+* write script
+
+
+## Part 5: write a service file
+
+**Note**: the service file must have same name with the script
+$ touch findUsers.service
+
+Service file should look like image below
+
+![image of service file](/images/service-file.png)
+
+* the type must be **oneshot** because it works with timer file
+
+* the ExecStart must have the location of the script. In this case, it is in /opt/findUsers directory
+
+## Part 6: write a timer file
+
+**Note**: the timer file must have same name with the script
+$ touch findUsers.timer
+
+Timer file should look like image below
+
+![image of timer file](/images/timer-file.png)
+
+* since the timer starts 1 minute after booting, we have:
+$ OnBootSec=1min
+
+* timer file runs everyday if active, we have:
+$ OnUnitActiveSec=1d
+
