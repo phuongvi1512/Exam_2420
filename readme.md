@@ -56,6 +56,9 @@ $ chmod + x findUsers
 
 ![image of script](/images/script.png)
 
+* the output looks like
+![img of output](/images/output.png)
+
 ## Part 5: write a service file
 
 **Note**: the service file must have same name with the script
