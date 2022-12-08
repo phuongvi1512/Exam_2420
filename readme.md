@@ -50,8 +50,11 @@ $ touch findUsers
 * add execution permission:
 $ chmod + x findUsers
 
+* The script file path must MATCH with file path in **ExecStart** in service file
+
 * write script
 
+![image of script](/images/script.png)
 
 ## Part 5: write a service file
 
@@ -80,4 +83,28 @@ $ OnBootSec=1min
 
 * timer file runs everyday if active, we have:
 $ OnUnitActiveSec=1d
+
+
+**NOTE**
+* Both timer and service file must be in /etc/systemd/system directory
+* After creating the files, you must run:
+
+$ sudo systemctl daemon-reload
+$ sudo systemctl start findUsers.service
+$ sudo systemctl start findUsers.timer
+
+* To make sure that the timer run when booting, you must enable the timer file:
+
+$ sudo systemctl enable findUsers.timer
+
+* To check if files are run properly, use **systemctl status**
+
+$ systemctl status findUsers.service
+$ systemctl status findUsers.timer
+
+The desired status should be
+
+![image of service file status](/images/service-file-status.png)
+
+![image of timer file status](/images/timer-file-status.png)
 
