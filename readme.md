@@ -10,10 +10,10 @@ $ sudo apt upgrade is the command to actually update softwares
 ## Part 2: Vim
 **Normal Mode**
 * to move the cursor: 
-    k to move up
-    j to move down
-    h to move left
-    j to move right
+   * k to move up
+   * j to move down
+   * h to move left
+   * j to move right
 
 * to replace letter:
     rx to replace the letter with x
@@ -92,9 +92,9 @@ $ OnUnitActiveSec=1d
 * Both timer and service file must be in /etc/systemd/system directory
 * After creating the files, you must run:
 
-$ sudo systemctl daemon-reload
-$ sudo systemctl start findUsers.service
-$ sudo systemctl start findUsers.timer
+> sudo systemctl daemon-reload
+> sudo systemctl start findUsers.service
+> sudo systemctl start findUsers.timer
 
 * To make sure that the timer run when booting, you must enable the timer file:
 
@@ -102,8 +102,8 @@ $ sudo systemctl enable findUsers.timer
 
 * To check if files are run properly, use **systemctl status**
 
-$ systemctl status findUsers.service
-$ systemctl status findUsers.timer
+> systemctl status findUsers.service
+> systemctl status findUsers.timer
 
 The desired status should be
 
