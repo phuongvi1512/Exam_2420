@@ -1,0 +1,12 @@
+if [ $# -eq 0 ] ; then
+  echo "Usage: $0 temperature[F|C|K]
+       where the suffix:
+       F   indicates input is in Fahrenheit (default)
+       C   indicates input is in Celsius
+       K   indicates input is in Kelvin"
+  exit 1
+fi
+
+unit="$(eco $1|sed -e 's/[-[:digit:]]*//g' | tr '[:lower:]' '[:upper:]' )"
+
+temp="$(eco $1|sed -e 's/[^-[:digit:]]*//g')"
